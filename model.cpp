@@ -1304,6 +1304,9 @@ SDVersion ModelLoader::get_sd_version() {
         if (tensor_storage.name.find("model.diffusion_model.input_blocks.8.0.time_mixer.mix_factor") != std::string::npos) {
             return VERSION_SVD;
         }
+        if (tensor_storage.name.find("double_blocks.0.img_attn.norm.key_norm.scale") != std::string::npos) {
+            return VERSION_FLUX_1_SCHNELL;
+        }
 
         if (tensor_storage.name == "cond_stage_model.transformer.text_model.embeddings.token_embedding.weight" ||
             tensor_storage.name == "cond_stage_model.model.token_embedding.weight" ||
@@ -1331,7 +1334,8 @@ ggml_type ModelLoader::get_sd_wtype() {
 
         if (tensor_storage.name.find(".weight") != std::string::npos &&
                 (tensor_storage.name.find("time_embed") != std::string::npos) ||
-            tensor_storage.name.find("context_embedder") != std::string::npos) {
+            tensor_storage.name.find("context_embedder") != std::string::npos ||
+            tensor_storage.name.find("time_in") != std::string::npos) {
             return tensor_storage.type;
         }
     }

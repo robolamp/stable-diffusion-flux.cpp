@@ -292,10 +292,14 @@ void parse_args(int argc, const char** argv, SDParams& params) {
                 params.wtype = SD_TYPE_F32;
             } else if (type == "f16") {
                 params.wtype = SD_TYPE_F16;
+            } else if (type == "q2_k") {
+                params.wtype = SD_TYPE_Q2_K;
             } else if (type == "q4_0") {
                 params.wtype = SD_TYPE_Q4_0;
             } else if (type == "q4_1") {
                 params.wtype = SD_TYPE_Q4_1;
+            } else if (type == "q4_k") {
+                params.wtype = SD_TYPE_Q4_K;
             } else if (type == "q5_0") {
                 params.wtype = SD_TYPE_Q5_0;
             } else if (type == "q5_1") {

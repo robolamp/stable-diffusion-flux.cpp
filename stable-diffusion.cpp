@@ -29,7 +29,9 @@ const char* model_version_to_str[] = {
     "2.x",
     "XL",
     "SVD",
-    "3 2B"};
+    "3 2B",
+    "(not really) FLUX 1.schnell",
+};
 
 const char* sampling_methods_str[] = {
     "Euler A",
